@@ -3,7 +3,7 @@ using System.Reactive.Subjects;
 
 namespace ReNet
 {
-    public delegate TState Reducer<TState>(IAction action, TState state)where TState:IState;
+    public delegate TState Reducer<TState>(IAction action, TState state) where TState : IState;
 
     public class Store<TState> : IObservable<TState> where TState : IState
     {
