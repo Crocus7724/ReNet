@@ -36,6 +36,10 @@
     <Compile Include="IState.cs" />
     <Compile Include="MiddlewareCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\INavigation.cs" />
+    <Compile Include="Routing\NavigationActions.cs" />
+    <Compile Include="Routing\IRoutableState.cs" />
+    <Compile Include="Routing\NavigationReducer.cs" />
     <Compile Include="Store.cs" />
   </ItemGroup>
   <ItemGroup>
