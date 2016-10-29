@@ -3,14 +3,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62812191-18E7-4542-A83C-E5BCDCED9036}</ProjectGuid>
+    <ProjectGuid>{956E40AC-7978-42C4-BB16-9BAB4DC548AA}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
-    <RootNamespace>ReNet</RootNamespace>
-    <AssemblyName>ReNet</AssemblyName>
+    <RootNamespace>CounterExample</RootNamespace>
+    <AssemblyName>CounterExample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,34 +28,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Helpers\CombineReducer.cs" />
-    <Compile Include="Helpers\Middleware.cs" />
-    <Compile Include="IAction.cs" />
-    <Compile Include="IMiddleware.cs" />
-    <Compile Include="IState.cs" />
-    <Compile Include="MiddlewareCollection.cs" />
+    <Compile Include="Actions.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="AppState.cs" />
+    <Compile Include="AppStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Store.cs" />
+    <Compile Include="Reducers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Reactive.Interfaces">
-      <HintPath>..\packages\System.Reactive.Interfaces.3.0.0\lib\netstandard1.0\System.Reactive.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\packages\System.Reactive.Interfaces.3.0.0\lib\netstandard1.0\System.Reactive.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.Core">
-      <HintPath>..\packages\System.Reactive.Core.3.0.0\lib\netstandard1.1\System.Reactive.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\System.Reactive.Core.3.0.0\lib\netstandard1.0\System.Reactive.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.Linq">
-      <HintPath>..\packages\System.Reactive.Linq.3.0.0\lib\netstandard1.1\System.Reactive.Linq.dll</HintPath>
+      <HintPath>..\..\..\packages\System.Reactive.Linq.3.0.0\lib\netstandard1.0\System.Reactive.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.PlatformServices">
-      <HintPath>..\packages\System.Reactive.PlatformServices.3.0.0\lib\netstandard1.0\System.Reactive.PlatformServices.dll</HintPath>
+      <HintPath>..\..\..\packages\System.Reactive.PlatformServices.3.0.0\lib\netstandard1.0\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers" />
+    <ProjectReference Include="..\..\..\ReNet\ReNet.csproj">
+      <Project>{62812191-18E7-4542-A83C-E5BCDCED9036}</Project>
+      <Name>ReNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

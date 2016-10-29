@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace ReNet.Helpers
@@ -16,7 +15,7 @@ namespace ReNet.Helpers
         public TState Invoke(IAction action, TState state)
             => _reducers.Aggregate(state, (current, reducer) => reducer.Invoke(action, current));
 
-        public static explicit operator Reducer<TState>(CombineReducer<TState> reducer)
+        public static implicit operator Reducer<TState>(CombineReducer<TState> reducer)
             => reducer.Invoke;
     }
 }

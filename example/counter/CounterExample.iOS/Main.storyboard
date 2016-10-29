@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXl-1H-C22">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-Sg-ESK">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="GcS-EB-2es"/>
+                                            <constraint firstAttribute="width" constant="60" id="fT4-TC-E5e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMK-lM-cR6">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="xhl-78-Nlw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Bz-Kd-oGL"/>
+                                    <constraint firstItem="wMK-lM-cR6" firstAttribute="leading" secondItem="Idb-Sg-ESK" secondAttribute="trailing" constant="10" id="FYp-EV-UN9"/>
+                                    <constraint firstItem="wMK-lM-cR6" firstAttribute="centerY" secondItem="SXl-1H-C22" secondAttribute="centerY" id="NDa-RQ-We3"/>
+                                    <constraint firstAttribute="width" constant="240" id="SoJ-qd-4q2"/>
+                                    <constraint firstItem="Idb-Sg-ESK" firstAttribute="leading" secondItem="SXl-1H-C22" secondAttribute="leading" constant="75" id="fyj-eM-7A1"/>
+                                    <constraint firstItem="Idb-Sg-ESK" firstAttribute="centerY" secondItem="SXl-1H-C22" secondAttribute="centerYWithinMargins" id="qJh-aG-CwX"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JH-xh-Jx6">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="66l-fQ-eom"/>
+                                    <constraint firstAttribute="width" constant="80" id="IsM-As-vOC"/>
+                                </constraints>
+                                <state key="normal" title="Increment"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJs-Zg-kwc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Phz-v3-cSu"/>
+                                    <constraint firstAttribute="height" constant="40" id="ik5-9O-amu"/>
+                                </constraints>
+                                <state key="normal" title="Decrement"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5JH-xh-Jx6" firstAttribute="top" secondItem="SXl-1H-C22" secondAttribute="bottom" constant="20" id="Nqa-zR-k2t"/>
+                            <constraint firstItem="5JH-xh-Jx6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerYWithinMargins" id="O2Q-oW-Q4k"/>
+                            <constraint firstItem="5JH-xh-Jx6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="Wcx-xM-HSe"/>
+                            <constraint firstItem="iJs-Zg-kwc" firstAttribute="top" secondItem="5JH-xh-Jx6" secondAttribute="bottom" constant="8" id="d15-pd-fWV"/>
+                            <constraint firstItem="SXl-1H-C22" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="dzy-Uh-MdP"/>
+                            <constraint firstItem="iJs-Zg-kwc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="thH-oZ-kBH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Count" destination="wMK-lM-cR6" id="Nyb-yo-cMo"/>
+                        <outlet property="DecrementButton" destination="iJs-Zg-kwc" id="ZhH-b3-FyH"/>
+                        <outlet property="IncrementButton" destination="5JH-xh-Jx6" id="AeZ-fw-FCZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="sDd-aW-806">
+            <objects>
+                <tableViewController id="bnI-Eq-rXH" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iZA-xD-QeF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="g5y-MK-cKo">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g5y-MK-cKo" id="ng1-AI-XdH">
+                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bnI-Eq-rXH" id="jed-Ei-d3M"/>
+                            <outlet property="delegate" destination="bnI-Eq-rXH" id="YYV-UF-bnF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbb-sx-3ho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
