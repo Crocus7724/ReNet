@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "counter", "counter", "{783D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterExample", "example\counter\CounterExample\CounterExample.csproj", "{956E40AC-7978-42C4-BB16-9BAB4DC548AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterExample.Droid", "example\counter\Droid\CounterExample.Droid.csproj", "{5E2FE31C-22D3-4A80-907A-FCF06CBE3B48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterExample.Droid", "example\counter\CounterExample.Android\CounterExample.Droid.csproj", "{5E2FE31C-22D3-4A80-907A-FCF06CBE3B48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterExample.iOS", "example\counter\CounterExample.iOS\CounterExample.iOS.csproj", "{366B1EDD-ECC2-426F-9162-E148F3B54B81}"
 EndProject
