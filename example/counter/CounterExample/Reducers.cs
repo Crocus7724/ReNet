@@ -1,9 +1,11 @@
 ﻿using ReNet;
+using ReNet.Helpers;
 
 namespace CounterExample
 {
     public class Reducers
     {
+        [Reducer]
         public static AppState Invoke(IAction action, AppState state)
         {
             var newState = state ?? new AppState();

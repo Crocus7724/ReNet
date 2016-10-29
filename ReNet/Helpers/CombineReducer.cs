@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace ReNet.Helpers
 {
@@ -10,6 +12,14 @@ namespace ReNet.Helpers
         public CombineReducer(params Reducer<TState>[] reducers)
         {
             _reducers = reducers;
+        }
+
+        public CombineReducer(params Type[] types) : this(types
+            .SelectMany(x => x.GetRuntimeMethods())
+            .Where(x => x.GetCustomAttribute<ReducerAttribute>() != null)
+            .Select(x => (Reducer<TState>) x.CreateDelegate(typeof(Reducer<TState>)))
+            .ToArray())
+        {
         }
 
         public TState Invoke(IAction action, TState state)

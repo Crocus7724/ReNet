@@ -1,4 +1,6 @@
-﻿namespace CounterExample
+﻿using ReNet.Helpers;
+
+namespace CounterExample
 {
     public class App
     {
@@ -8,7 +10,7 @@
 
         public App()
         {
-            Store=new AppStore(Reducers.Invoke,new AppState());
+            Store=new AppStore(new CombineReducer<AppState>(typeof(Reducers)),new AppState());
         }
     }
 }

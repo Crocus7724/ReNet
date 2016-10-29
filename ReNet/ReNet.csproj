@@ -30,6 +30,7 @@
   <ItemGroup>
     <Compile Include="Helpers\CombineReducer.cs" />
     <Compile Include="Helpers\Middleware.cs" />
+    <Compile Include="Helpers\ReducerAttribute.cs" />
     <Compile Include="IAction.cs" />
     <Compile Include="IMiddleware.cs" />
     <Compile Include="IState.cs" />
@@ -53,9 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
