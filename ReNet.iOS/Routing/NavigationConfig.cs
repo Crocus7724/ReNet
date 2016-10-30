@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using UIKit;
 
 namespace ReNet.iOS.Routing
 {
@@ -16,14 +17,28 @@ namespace ReNet.iOS.Routing
 
         public NavigationConfig RegisterView(string name, string storyboardName, string storyboardIdentifier)
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(storyboardIdentifier))
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(name == null ? nameof(name) : nameof(storyboardIdentifier));
+                throw new ArgumentNullException(nameof(name));
             }
 
             if (Items.ContainsKey(name)) throw new InvalidOperationException($"{name} is already used.");
 
             Items.Add(name, new NavigationConfigItem(storyboardName, storyboardIdentifier));
+
+            return this;
+        }
+
+        public NavigationConfig RegisterView(string name,Type viewControllerType)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if(Items.ContainsKey(name))throw new InvalidOperationException($"{name} is already used.");
+
+            Items.Add(name,new NavigationConfigItem(viewControllerType));
 
             return this;
         }
@@ -40,25 +55,35 @@ namespace ReNet.iOS.Routing
 
         public NavigationConfig RegisterViews(params Assembly[] loadTargets)
         {
-            var attributes = loadTargets.SelectMany(x => x.GetTypes())
-                .Where(x => x.GetCustomAttribute<RoutingAttribute>() != null)
-                .Select(x => x.GetCustomAttribute<RoutingAttribute>());
+            var types = loadTargets.SelectMany(x => x.GetTypes())
+                .Where(x => x.GetCustomAttribute<RouteAttribute>() != null);
 
-            foreach (var attribute in attributes)
+            foreach (var type in types)
             {
+                var attribute = type.GetCustomAttribute<RouteAttribute>();
+                if (attribute.UseXib)
+                {
+                    RegisterView(attribute.Name, type);
+                    break;
+                }
+
                 RegisterView(attribute.Name, attribute.StoryboardName, attribute.StoryboardIdentifier);
             }
 
             return this;
         }
 
-        private NavigationConfig RegisterView(Type viewType)
+        private void RegisterView(Type viewType)
         {
-            var attribute = viewType.GetCustomAttribute<RoutingAttribute>();
+            var attribute = viewType.GetCustomAttribute<RouteAttribute>();
+
+            if (attribute.UseXib)
+            {
+                RegisterView(attribute.Name, viewType);
+                return;
+            }
 
             RegisterView(attribute.Name, attribute.StoryboardName, attribute.StoryboardIdentifier);
-
-            return this;
         }
     }
 }

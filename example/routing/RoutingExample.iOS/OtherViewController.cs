@@ -4,12 +4,11 @@ using UIKit;
 
 namespace RoutingExample.iOS
 {
-    [Route("MainView", StoryboardName = "Main", StoryboardIdentifier = "MainView")]
-    public partial class ViewController : UIViewController
+    [Route("OtherView",UseXib = true)]
+    public partial class OtherViewController : UIViewController
     {
-        protected ViewController(IntPtr handle) : base(handle)
+        public OtherViewController() : base("OtherViewController", null)
         {
-            // Note: this .ctor should not contain any initialization logic.
         }
 
         public override void ViewDidLoad()
@@ -19,12 +18,10 @@ namespace RoutingExample.iOS
 
             App.Current.Store.Subscribe(x => CountLabel.Text = x.PageNumber.ToString());
 
-            NextButton.TouchUpInside += (sender, args) => App.Current.Store.Dispatch(new NextPageAction("MainView"));
+            NextButton.TouchUpInside += (sender, args) => App.Current.Store.Dispatch(new NextPageAction("OtherView"));
             PreviousButton.TouchUpInside += (sender, args) => App.Current.Store.Dispatch(new PreviousPageAction());
-            AnotherStoryboardButton.TouchUpInside +=
-                (sender, args) => App.Current.Store.Dispatch(new NextPageAction("SubView"));
-            OtherXibButton.TouchUpInside +=
-                (sender, args) => App.Current.Store.Dispatch(new NextPageAction("OtherView"));
+            MainStoryboardButton.TouchUpInside +=
+                (sender, args) => App.Current.Store.Dispatch(new NextPageAction("MainView"));
         }
 
         public override void DidReceiveMemoryWarning()
@@ -34,3 +31,4 @@ namespace RoutingExample.iOS
         }
     }
 }
+

@@ -9,34 +9,31 @@ using System.CodeDom.Compiler;
 
 namespace RoutingExample.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("OtherViewController")]
+	partial class OtherViewController
 	{
-		[Outlet]
-		UIKit.UIButton AnotherStoryboardButton { get; set; }
-
 		[Outlet]
 		UIKit.UILabel CountLabel { get; set; }
 
 		[Outlet]
-		UIKit.UIButton NextButton { get; set; }
+		UIKit.UIButton MainStoryboardButton { get; set; }
 
 		[Outlet]
-		UIKit.UIButton OtherXibButton { get; set; }
+		UIKit.UIButton NextButton { get; set; }
 
 		[Outlet]
 		UIKit.UIButton PreviousButton { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (AnotherStoryboardButton != null) {
-				AnotherStoryboardButton.Dispose ();
-				AnotherStoryboardButton = null;
-			}
-
 			if (CountLabel != null) {
 				CountLabel.Dispose ();
 				CountLabel = null;
+			}
+
+			if (MainStoryboardButton != null) {
+				MainStoryboardButton.Dispose ();
+				MainStoryboardButton = null;
 			}
 
 			if (NextButton != null) {
@@ -47,11 +44,6 @@ namespace RoutingExample.iOS
 			if (PreviousButton != null) {
 				PreviousButton.Dispose ();
 				PreviousButton = null;
-			}
-
-			if (OtherXibButton != null) {
-				OtherXibButton.Dispose ();
-				OtherXibButton = null;
 			}
 		}
 	}

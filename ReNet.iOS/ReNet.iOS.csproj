@@ -57,7 +57,7 @@
     <Compile Include="Routing\Navigation.cs" />
     <Compile Include="Routing\NavigationConfig.cs" />
     <Compile Include="Routing\NavigationConfigItem.cs" />
-    <Compile Include="Routing\RoutingAttribute.cs" />
+    <Compile Include="Routing\RouteAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\example\counter\CounterExample\CounterExample.csproj">

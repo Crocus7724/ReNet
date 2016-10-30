@@ -3,16 +3,16 @@
 namespace ReNet.iOS.Routing
 {
     [AttributeUsage(AttributeTargets.Class,AllowMultiple = false,Inherited = false)]
-    public class RoutingAttribute:Attribute
+    public class RouteAttribute:Attribute
     {
         public string Name { get; }
-        public string StoryboardIdentifier { get; }
+        public string StoryboardIdentifier { get; set; }
         public string StoryboardName { get; set; }
+        public bool UseXib { get; set; }
 
-        public RoutingAttribute(string name, string storyboardIdentifier)
+        public RouteAttribute(string name)
         {
             Name = name;
-            StoryboardIdentifier = storyboardIdentifier;
         }
     }
 }

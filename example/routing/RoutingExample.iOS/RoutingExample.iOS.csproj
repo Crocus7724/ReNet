@@ -111,6 +111,7 @@
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Sub.storyboard" />
+    <InterfaceDefinition Include="OtherViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -127,6 +128,10 @@
     <Compile Include="SubViewController.cs" />
     <Compile Include="SubViewController.designer.cs">
       <DependentUpon>SubViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherViewController.cs" />
+    <Compile Include="OtherViewController.designer.cs">
+      <DependentUpon>OtherViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

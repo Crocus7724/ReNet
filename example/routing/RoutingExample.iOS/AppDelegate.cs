@@ -12,17 +12,14 @@ namespace RoutingExample.iOS
     {
         // class-level declarations
 
-        public override UIWindow Window
-        {
-            get;
-            set;
-        }
+        public override UIWindow Window { get; set; }
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-            var config = new NavigationConfig().RegisterViews(typeof(ViewController),typeof(SubViewController));
+            var config = new NavigationConfig().RegisterViews(typeof(ViewController), typeof(SubViewController),
+                typeof(OtherViewController));
             App.Current.Store.Dispatch(
                 new NavigationInitialAction(new Navigation((UINavigationController) Window.RootViewController, config)));
             return true;
@@ -60,4 +57,3 @@ namespace RoutingExample.iOS
         }
     }
 }
-

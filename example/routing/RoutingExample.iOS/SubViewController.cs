@@ -5,7 +5,7 @@ using UIKit;
 
 namespace RoutingExample.iOS
 {
-    [Routing("SubView", "SubView", StoryboardName = "Sub")]
+    [Route("SubView", StoryboardName = "Sub",StoryboardIdentifier = "SubView")]
     public partial class SubViewController : UIViewController
     {
         public SubViewController() : base("SubViewController", null)

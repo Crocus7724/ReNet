@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
-using Foundation;
 using ReNet.Routing;
 using UIKit;
 
@@ -43,7 +40,7 @@ namespace ReNet.iOS.Routing
                 throw new ArgumentOutOfRangeException(nameof(NavigationController.ViewControllers));
             }
 
-            var targetController = controllers[controllers.Length-count-1];
+            var targetController = controllers[controllers.Length - count - 1];
 
             NavigationController.PopToViewController(targetController, true);
         }
@@ -51,31 +48,53 @@ namespace ReNet.iOS.Routing
         private UIViewController CreateViewController(NavigationConfigItem item)
         {
             UIViewController controller;
-            if (string.IsNullOrEmpty(item.StoryboardName))
+
+            //xib
+            if (item.ViewControllerType != null)
             {
                 try
                 {
-                    controller = NavigationController.Storyboard.InstantiateViewController(item.StoryboardIdentifier);
+                    controller = (UIViewController)Activator.CreateInstance(item.ViewControllerType);
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException(
-                        $"{item.StoryboardIdentifier} cannot create ViewController in this storyboard.");
+                    throw new InvalidOperationException($"Cannot create instance for {item.ViewControllerType.Name}");
                 }
 
                 return controller;
             }
 
+            //using storyboard
+            if (string.IsNullOrEmpty(item.StoryboardName))
+            {
+                try
+                {
+                    controller = string.IsNullOrEmpty(item.StoryboardIdentifier)
+                        ? NavigationController.Storyboard.InstantiateInitialViewController()
+                        : NavigationController.Storyboard.InstantiateViewController(item.StoryboardIdentifier);
+                }
+                catch (Exception)
+                {
+                    throw new InvalidOperationException(
+                        $"{item.StoryboardIdentifier ?? "Initial ViewController"} cannot create ViewController in this storyboard.");
+                }
+
+                return controller;
+            }
+
+            //other storyboard
             var storyboard = UIStoryboard.FromName(item.StoryboardName, null);
 
             try
             {
-                controller = storyboard.InstantiateViewController(item.StoryboardIdentifier);
+                controller = string.IsNullOrEmpty(item.StoryboardIdentifier)
+                    ? storyboard.InstantiateInitialViewController()
+                    : storyboard.InstantiateViewController(item.StoryboardIdentifier);
             }
             catch (Exception)
             {
                 throw new InvalidOperationException(
-                    $"{item.StoryboardIdentifier} cannot create ViewController in {item.StoryboardName}.");
+                    $"{item.StoryboardIdentifier ?? "Initial ViewController"} cannot create ViewController in {item.StoryboardName}.");
             }
 
             return controller;
