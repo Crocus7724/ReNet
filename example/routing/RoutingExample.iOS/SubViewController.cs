@@ -27,7 +27,7 @@ namespace RoutingExample.iOS
             NextButton.TouchUpInside += (sender, args) => App.Current.Store.Dispatch(new NextPageAction("SubView"));
             PreviousButton.TouchUpInside += (sender, args) => App.Current.Store.Dispatch(new PreviousPageAction(3));
             AnotherStoryboardButton.TouchUpInside +=
-                (sender, args) => App.Current.Store.Dispatch(new NavigationAction("MainView"));
+                (sender, args) => App.Current.Store.Dispatch(new NextPageAction("MainView"));
         }
 
         public override void DidReceiveMemoryWarning()

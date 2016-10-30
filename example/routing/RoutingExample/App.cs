@@ -11,7 +11,7 @@ namespace RoutingExample
 
         public App()
         {
-            Store=new AppStore(new CombineReducer<AppState>(typeof(NavigationReducer<AppState>),typeof(Reducers)),new AppState());
+            Store=new AppStore(new CombineReducer<AppState>(typeof(Reducers)),new AppState());
         }
     }
 }
