@@ -43,7 +43,7 @@ namespace ReNet.iOS.Routing
                 throw new ArgumentOutOfRangeException(nameof(NavigationController.ViewControllers));
             }
 
-            var targetController = controllers[count - 1];
+            var targetController = controllers[controllers.Length-count-1];
 
             NavigationController.PopToViewController(targetController, true);
         }
@@ -66,7 +66,7 @@ namespace ReNet.iOS.Routing
                 return controller;
             }
 
-            var storyboard = UIStoryboard.FromName(item.StoryboardName, NSBundle.MainBundle);
+            var storyboard = UIStoryboard.FromName(item.StoryboardName, null);
 
             try
             {

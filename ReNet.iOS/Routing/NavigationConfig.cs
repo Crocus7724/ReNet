@@ -8,7 +8,7 @@ namespace ReNet.iOS.Routing
     public class NavigationConfig
     {
         internal IDictionary<string, NavigationConfigItem> Items { get; }
-            = new Dictionary<string, NavigationConfigItem>();
+        = new Dictionary<string, NavigationConfigItem>();
 
         public NavigationConfig()
         {
@@ -28,12 +28,14 @@ namespace ReNet.iOS.Routing
             return this;
         }
 
-        public void RegisterViews(params Type[] viewTypes)
+        public NavigationConfig RegisterViews(params Type[] viewTypes)
         {
             foreach (var type in viewTypes)
             {
                 RegisterView(type);
             }
+
+            return this;
         }
 
         public NavigationConfig RegisterViews(params Assembly[] loadTargets)
