@@ -1,21 +1,50 @@
 ﻿// WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Xamarin Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace RoutingExample.iOS
 {
-    [Register("SubViewController")]
-    partial class SubViewController
-    {
-        void ReleaseDesignerOutlets()
-        {
-        }
-    }
+	[Register ("SubViewController")]
+	partial class SubViewController
+	{
+		[Outlet]
+		UIKit.UIButton AnotherStoryboardButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel CountLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIButton NextButton { get; set; }
+
+		[Outlet]
+		UIKit.UIButton PreviousButton { get; set; }
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (NextButton != null) {
+				NextButton.Dispose ();
+				NextButton = null;
+			}
+
+			if (PreviousButton != null) {
+				PreviousButton.Dispose ();
+				PreviousButton = null;
+			}
+
+			if (AnotherStoryboardButton != null) {
+				AnotherStoryboardButton.Dispose ();
+				AnotherStoryboardButton = null;
+			}
+
+			if (CountLabel != null) {
+				CountLabel.Dispose ();
+				CountLabel = null;
+			}
+		}
+	}
 }

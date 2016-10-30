@@ -1,4 +1,7 @@
-﻿namespace RoutingExample
+﻿using ReNet.Helpers;
+using ReNet.Routing;
+
+namespace RoutingExample
 {
     public class App
     {
@@ -8,7 +11,7 @@
 
         public App()
         {
-            Store=new AppStore(Reducers.Invoke);
+            Store=new AppStore(new CombineReducer<AppState>(typeof(NavigationReducer<AppState>),typeof(Reducers)),new AppState());
         }
     }
 }

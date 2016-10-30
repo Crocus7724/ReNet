@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using ReNet.iOS.Routing;
+using ReNet.Routing;
 using UIKit;
 
 namespace RoutingExample.iOS
@@ -20,7 +22,9 @@ namespace RoutingExample.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-
+            var config = new NavigationConfig().RegisterViews(typeof(ViewController),typeof(SubViewController));
+            App.Current.Store.Dispatch(
+                new NavigationInitialAction(new Navigation((UINavigationController) Window.RootViewController, config)));
             return true;
         }
 

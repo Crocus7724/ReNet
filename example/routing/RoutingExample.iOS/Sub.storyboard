@@ -101,6 +101,12 @@
                             <constraint firstItem="y23-Fv-g32" firstAttribute="top" secondItem="Qfy-eG-aXp" secondAttribute="bottom" constant="10" id="wvP-HF-fpA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AnotherStoryboardButton" destination="y23-Fv-g32" id="cGX-NI-LZU"/>
+                        <outlet property="CountLabel" destination="7oV-qc-fap" id="rdC-9f-Vz2"/>
+                        <outlet property="NextButton" destination="vyM-UB-yTH" id="ADQ-9U-1hx"/>
+                        <outlet property="PreviousButton" destination="Qfy-eG-aXp" id="xa6-T2-Lg9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLd-gc-kGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
