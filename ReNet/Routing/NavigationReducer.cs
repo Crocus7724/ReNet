@@ -7,11 +7,17 @@ namespace ReNet.Routing
         [Reducer]
         public static TState Invoke(IAction action, TState state)
         {
-            var navigationAction = action as NavigationAction;
+            var navigationAction = action as INavigationAction;
 
-            if (navigationAction != null)
+            if (navigationAction == null) return state;
+
+            if (action is NavigationAction)
             {
-                state.Navigation.NavigateTo(navigationAction.Name);
+                state.Navigation.NavigateTo(((NavigationAction)action).Name);
+            }
+            else if(action is NavigationInitialAction)
+            {
+                state.Navigation=((NavigationInitialAction) action).Navigation;
             }
 
             return state;

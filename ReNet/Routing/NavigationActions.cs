@@ -1,22 +1,36 @@
 ﻿namespace ReNet.Routing
 {
-    public class InitialAction
+    public interface INavigationAction : IAction
     {
-        private INavigation Navigation { get; }
+    }
 
-        public InitialAction(INavigation navigation)
+    public class NavigationInitialAction : INavigationAction
+    {
+        public INavigation Navigation { get; }
+
+        public NavigationInitialAction(INavigation navigation)
         {
             Navigation = navigation;
         }
     }
 
-    public class NavigationAction : IAction
+    public class NavigationAction : INavigationAction
     {
         public string Name { get; }
 
         public NavigationAction(string name)
         {
             Name = name;
+        }
+    }
+
+    public class NavigationGoBackAction : INavigationAction
+    {
+        public int Count { get; }
+
+        public NavigationGoBackAction(int count = 1)
+        {
+            Count = count;
         }
     }
 }
