@@ -11,13 +11,26 @@ namespace ReNet.Routing
 
             if (navigationAction == null) return state;
 
-            if (action is NavigationAction)
+            var navigateToAction = action as NavigationAction;
+            if (navigateToAction != null)
             {
-                state.Navigation.NavigateTo(((NavigationAction)action).Name);
+                state.Navigation.NavigateTo(navigateToAction.Name);
+                return state;
             }
-            else if(action is NavigationInitialAction)
+
+            var goBackAction = action as NavigationGoBackAction;
+
+            if (goBackAction != null)
             {
-                state.Navigation=((NavigationInitialAction) action).Navigation;
+                state.Navigation.GoBack(goBackAction.Count);
+                return state;
+            }
+
+            var initialAction = action as NavigationInitialAction;
+
+            if (initialAction != null)
+            {
+                state.Navigation = ((NavigationInitialAction) action).Navigation;
             }
 
             return state;
