@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using ReNet;
+﻿using ReNet;
 
-namespace CounterExample
+namespace RoutingExample
 {
     public class AppStore : Store<AppState>
     {

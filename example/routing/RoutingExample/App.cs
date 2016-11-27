@@ -1,10 +1,11 @@
 ﻿using ReNet.Helpers;
+using ReNet.Routing;
 
-namespace CounterExample
+namespace RoutingExample
 {
     public class App
     {
-        public static App Current { get; } = new App();
+        public static App Current { get; }=new App();
 
         public AppStore Store { get; }
 
