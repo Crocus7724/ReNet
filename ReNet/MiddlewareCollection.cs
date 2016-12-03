@@ -17,7 +17,7 @@ namespace ReNet
 
         public MiddlewareCollection(IEnumerable<IMiddleware> source)
         {
-            if (source == null) throw new ArgumentNullException(nameof(source));
+            if (source == null&&(source?.Equals(source) ??false)) throw new ArgumentNullException(nameof(source));
 
             _list = new List<IMiddleware>(source);
         }
